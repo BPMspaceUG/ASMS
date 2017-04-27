@@ -52,7 +52,13 @@
     <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
     <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
 </div>
-<div class="text-right"><img src="../images/BPMspace_logo.png"></div>
+<div class="container">
+    <!--Row with two equal columns-->
+    <div class="row">
+        <div class="col-sm-8"></div>
+        <div class="col-sm-4"><img src="../images/BPMspace_logo.png"></div>
+    </div>
+</div>
 <div id="impress" >
 
     <!--
@@ -85,6 +91,10 @@
 	   <div class="step slide">
 			<?php echo $RP->replace($RP,'Test Slide 2',$language);?>
     </div>
+	
+	<div class="step slide">
+			<?php echo $RP->replace($RP,'negativ test',$language);?>
+    </div>
 
 	
 </div>
@@ -104,7 +114,7 @@
 <!-- Extra modules
      Load highlight.js, mermaid.js and markdown.js from extras.
      If you're curious about details, these are initialized in src/plugins/extras/extras.js -->
-p<script type="text/javascript" src="./impress.js/extras/markdown/markdown.js"></script>
+<script type="text/javascript" src="./impress.js/extras/markdown/markdown.js"></script>
 <script type="text/javascript" src="./impress.js/extras/impress-console/js/impressConsole.js"></script>
 <script type="text/javascript">
   // For impressConsole, we unfortunately must also set the path to a mandatory css file
