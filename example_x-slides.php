@@ -81,7 +81,10 @@
                 $ato =$_GET["ato"];
                 $course_name ='TEST COURSE';
              
-             for ($i=0; $i < 50; $i++) { 
+             $slides = $_GET["pages"];
+             
+             for ($i=0; $i < $slides; $i++) { 
+              $i = sprintf('%02d',$i);
                echo "<div class=\"step slide\">
       ".$RP->replace($RP,"Slide $i",$language)."
     </div>";
