@@ -3,26 +3,9 @@
 // include BPMspaceReplacer
 
 	include_once "../REPLACER/inc/class_replacer.inc.php"; 
-	$language ='de';
+	$language ='en';
 
 	$RP = new RePlacer();
-	/*
-	$replacer = 'TEST_REPLACE';
-	echo $RP->replace($RP,$replacer,'en');
-	echo "<hr>";
-	echo $RP->replace($RP,$replacer,'de');
-	echo "<hr>";
-	$replacer = 'TEST_REPLACE_3';
-	echo $RP->replace($RP,$replacer,'en');
-	echo "<hr>";
-	echo $RP->replace($RP,$replacer,'de');
-	echo "<hr>";
-	$replacer = 'T091230123650265890176r02365rtouewi5t48723406rzg0fb48fv';
-	echo $RP->replace($RP,$replacer,'en');
-	echo "<hr>";
-	echo $RP->replace($RP,$replacer,'de');
-	echo "<hr>";
-	*/
 
 ?>
 
@@ -52,6 +35,7 @@
     <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
     <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
 </div>
+
 <div class="container">
     <!--Row with two equal columns-->
     <div class="row">
@@ -83,18 +67,29 @@
         powerpoint slide show. The "slide" class is entirely optional and indeed you wouldn't use it for
         your cooler impress.js presentations.
     -->
+
+<?php
+    //            include_once "../REPLACER/inc/class_replacer.inc.php";
+
+                $language =$_GET["lang"];
+                $other_language ='en';
+                if ($language == 'de'){
+                    $other_language = 'en';
+                    }
+                else {$other_language = 'de';}
+                
+                $ato =$_GET["ato"];
+                $course_name ='TEST COURSE';
+             
+             for ($i=0; $i < 50; $i++) { 
+               echo "<div class=\"step slide\">
+      ".$RP->replace($RP,"Slide $i",$language)."
+    </div>";
+             }
+?>
+
     
-   <div class="step slide">
-			<?php echo $RP->replace($RP,'Test Slide 1',$language);?>
-    </div>
-	
-	   <div class="step slide">
-			<?php echo $RP->replace($RP,'Test Slide 2',$language);?>
-    </div>
-	
-	<div class="step slide">
-			<?php echo $RP->replace($RP,'negativ test',$language);?>
-    </div>
+   
 
 	
 </div>
