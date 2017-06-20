@@ -70,6 +70,11 @@
 
 <?php
     //            include_once "../REPLACER/inc/class_replacer.inc.php";
+                if (!isset($_GET["lang"]) || !isset($_GET["ato"]) || !isset($_GET["pages"])) {
+                  echo "<p><a href=\"http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?lang=de&ato=ico&pages=20\">Deutsch - 20 Seiten</a></p>
+                        <p><a href=\"http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?lang=de&ato=ico&pages=50\">Deutsch - 50 Seiten</a></p>
+                        <p><a href=\"http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?lang=de&ato=ico&pages=100\">Deutsch - 100 Seiten</a></p>";
+                }
 
                 $language =$_GET["lang"];
                 $other_language ='en';
@@ -86,7 +91,7 @@
              for ($i=0; $i < $slides; $i++) { 
               $i = sprintf('%02d',$i);
                echo "<div class=\"step slide\">
-      ".$RP->replace($RP,"Slide $i",$language)."
+      ".$RP->replace($RP,"Test Slide $i",$language)."
     </div>";
              }
 ?>
