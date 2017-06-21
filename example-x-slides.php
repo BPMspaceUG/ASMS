@@ -3,7 +3,7 @@
 // include BPMspaceReplacer
 
 	include_once "../REPLACER/inc/class_replacer.inc.php"; 
-	$language ='en';
+	$language ='de';
 
 	$RP = new RePlacer();
 
@@ -27,6 +27,7 @@
 </head>
 
 <body class="impress-not-supported">
+
 <!--
     This fallback message is only visible when there is `impress-not-supported` class on body.
 -->
@@ -37,11 +38,8 @@
 </div>
 
 <div class="container">
+
     <!--Row with two equal columns-->
-    <div class="row">
-        <div class="col-sm-8"></div>
-        <div class="col-sm-4"><img src="../images/BPMspace_logo.png"></div>
-    </div>
 </div>
 <div id="impress" >
 
@@ -70,33 +68,29 @@
 
 <?php
     //            include_once "../REPLACER/inc/class_replacer.inc.php";
-                if (!isset($_GET["lang"]) || !isset($_GET["ato"]) || !isset($_GET["pages"])) {
-                  echo "<p><a href=\"http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?lang=de&ato=ico&pages=20\">Deutsch - 20 Seiten</a></p>
-                        <p><a href=\"http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?lang=de&ato=ico&pages=50\">Deutsch - 50 Seiten</a></p>
-                        <p><a href=\"http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?lang=de&ato=ico&pages=100\">Deutsch - 100 Seiten</a></p>";
-                }
-
+                if (!isset($_GET["pages"])) {
+                  echo "<p class=\"col-sm-12\"><a href=\"http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?pages=20\">20 Seiten</a></p>
+                        <p class=\"col-sm-12\"><a href=\"http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?pages=50\">50 Seiten</a></p>
+                        <p class=\"col-sm-12\"><a href=\"http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?pages=100\">100 Seiten</a></p>";
+                }else{
                 $language =$_GET["lang"];
-                $other_language ='en';
-                if ($language == 'de'){
-                    $other_language = 'en';
-                    }
-                else {$other_language = 'de';}
+                if ($language == "") {
+                  $language = "de";
+                }
                 
-                $ato =$_GET["ato"];
-                $course_name ='TEST COURSE';
+                
              
              $slides = $_GET["pages"];
              
-             for ($i=0; $i < $slides; $i++) { 
-              $i = sprintf('%02d',$i);
+             for ($i=1; $i <= $slides; $i++) { 
+             $i = sprintf('%02d',$i);
                echo "<div class=\"step slide\">
-      ".$RP->replace($RP,"Test Slide $i",$language)."
+      ".$RP->replace($RP, "Test Slide $i", $language)."
     </div>";
              }
+           }
 ?>
 
-    
    
 
 	
