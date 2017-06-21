@@ -1,0 +1,144 @@
+/*div[class="row"] {
+    border: 1px dotted rgba(0, 0, 0, 0.5);
+}
+
+div[class^="col-"] {
+    background-color: rgba(255, 0, 0, 0.2);
+}
+*/
+
+.vericaltext{
+
+}
+
+.overlay-container {
+    display: inline-block;
+    position: relative;
+}
+
+.overlay_button {
+    position: absolute;    
+    right: 30px;
+    top: 10px;
+}
+
+.overlay_button_30 {
+	transform: rotate(30deg);
+    position: absolute;    
+    right: 30px;
+    top: 10px;
+}
+
+.overlay_button_90 {
+	transform: rotate(90deg);
+    position: absolute;    
+    right: 30px;
+    top: 10px;
+}
+
+.margin-top-10 {
+  margin-top: 10px;
+}
+
+.margin-top-20 {
+  margin-top: 20px;
+}
+
+.margin-top-25 {
+  margin-top: 25px;
+}
+
+.margin-top-30 {
+  margin-top: 30px;
+}
+
+.margin-top-40 {
+  margin-top: 40px;
+}
+
+.no-support-message { display:none; }
+.impress-not-supported .no-support-message { display:block; }
+.step {
+    display: block;
+
+    width: 800px;
+    height: 600px;
+    margin-top: 0px;
+
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, .3);
+    border-radius: 10px;
+}
+
+.breadcrumb h1{
+	font-size: 150%;
+	margin-top: -200px;
+	
+}
+
+.slidercontent {
+	margin-top: -130px;
+}
+
+.slidercontent li, p {
+	font-size: 150%;
+}
+
+.tag-box-slide {
+	margin-top: 130px;
+}
+
+.tag-box-slide h2:before {
+	font-family: FontAwesome;
+	content: "\f097";
+    margin-left: 15px;
+	padding-right: 10px;
+}
+
+.tag-box-slide h3:before {
+	font-family: FontAwesome;
+	content: "\f02e";
+    margin-left: 20px;
+	padding-right: 10px;
+}
+
+.tag-box-slide h4 {
+	background-color: transparent;
+	border-width: 2px;
+	border-radius: 4px !important;
+	padding-left: 10px;
+}
+
+.definition h3 {
+	margin-top: -34px;
+	background-color: #F0F0F0;
+    border-radius: 10px;
+}
+
+.definition h3:before {
+	font-family: FontAwesome;
+	content: "\f138";
+    margin-left: 15px;
+	padding-right: 10px;
+}
+
+li
+{
+list-style-type: none;
+font-family: FontAwesome;
+content: "\f10c";
+padding-right: 10px;
+}
+
+ol li {
+ list-style-type: decimal;
+ margin-left: 35px;
+}
+ 
+ul li::before
+{
+font-family: FontAwesome;
+content: "\f0da";
+padding-right: 10px;
+}
+
