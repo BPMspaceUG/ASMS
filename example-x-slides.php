@@ -3,26 +3,9 @@
 // include BPMspaceReplacer
 
 	include_once "../REPLACER/inc/class_replacer.inc.php"; 
-	$language ='de';
+	$language ='en';
 
 	$RP = new RePlacer();
-	/*
-	$replacer = 'TEST_REPLACE';
-	echo $RP->replace($RP,$replacer,'en');
-	echo "<hr>";
-	echo $RP->replace($RP,$replacer,'de');
-	echo "<hr>";
-	$replacer = 'TEST_REPLACE_3';
-	echo $RP->replace($RP,$replacer,'en');
-	echo "<hr>";
-	echo $RP->replace($RP,$replacer,'de');
-	echo "<hr>";
-	$replacer = 'T091230123650265890176r02365rtouewi5t48723406rzg0fb48fv';
-	echo $RP->replace($RP,$replacer,'en');
-	echo "<hr>";
-	echo $RP->replace($RP,$replacer,'de');
-	echo "<hr>";
-	*/
 
 ?>
 
@@ -52,6 +35,7 @@
     <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
     <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
 </div>
+
 <div class="container">
     <!--Row with two equal columns-->
     <div class="row">
@@ -83,18 +67,37 @@
         powerpoint slide show. The "slide" class is entirely optional and indeed you wouldn't use it for
         your cooler impress.js presentations.
     -->
+
+<?php
+    //            include_once "../REPLACER/inc/class_replacer.inc.php";
+                if (!isset($_GET["lang"]) || !isset($_GET["ato"]) || !isset($_GET["pages"])) {
+                  echo "<p><a href=\"http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?lang=de&ato=ico&pages=20\">Deutsch - 20 Seiten</a></p>
+                        <p><a href=\"http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?lang=de&ato=ico&pages=50\">Deutsch - 50 Seiten</a></p>
+                        <p><a href=\"http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?lang=de&ato=ico&pages=100\">Deutsch - 100 Seiten</a></p>";
+                }
+
+                $language =$_GET["lang"];
+                $other_language ='en';
+                if ($language == 'de'){
+                    $other_language = 'en';
+                    }
+                else {$other_language = 'de';}
+                
+                $ato =$_GET["ato"];
+                $course_name ='TEST COURSE';
+             
+             $slides = $_GET["pages"];
+             
+             for ($i=0; $i < $slides; $i++) { 
+              $i = sprintf('%02d',$i);
+               echo "<div class=\"step slide\">
+      ".$RP->replace($RP,"Test Slide $i",$language)."
+    </div>";
+             }
+?>
+
     
-   <div class="step slide">
-			<?php echo $RP->replace($RP,'Test Slide 1',$language);?>
-    </div>
-	
-	   <div class="step slide">
-			<?php echo $RP->replace($RP,'Test Slide 2',$language);?>
-    </div>
-	
-	<div class="step slide">
-			<?php echo $RP->replace($RP,'negativ test',$language);?>
-    </div>
+   
 
 	
 </div>
