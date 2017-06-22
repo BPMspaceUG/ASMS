@@ -73,8 +73,9 @@
                         <p class=\"col-sm-12\"><a href=\"http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?pages=50\">50 Seiten</a></p>
                         <p class=\"col-sm-12\"><a href=\"http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?pages=100\">100 Seiten</a></p>";
                 }else{
-                $language =$_GET["lang"];
-                if ($language == "") {
+                if (isset($_GET["lang"])) {
+                  $language = $_GET["lang"];
+                }else{
                   $language = "de";
                 }
                 

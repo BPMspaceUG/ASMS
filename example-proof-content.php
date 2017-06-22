@@ -49,8 +49,9 @@
 
   $RP = new RePlacer();
   // Set the language for the Replacer
-  $language = $_GET["lang"];
-  if ($language == "") {
+  if (isset($_GET["lang"])) {
+    $language = $_GET["lang"];
+  }else{
     $language = "de";
   }
   //Read the Pattern for the Replacer
