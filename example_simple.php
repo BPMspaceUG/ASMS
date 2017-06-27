@@ -1,16 +1,12 @@
-<!doctype html>
-<?php 
-// include BPMspaceReplacer
 
-	include_once "../REPLACER/inc/class_replacer.inc.php"; 
-	$language ='de';
+
+<?php 
+require_once "_header.inc.php";
+
+
 	$other_language ='en';
 	$ato ='ico';
 	$course_name ='TEST COURSE';
-
-	$RP = new RePlacer();
-	
-	//var_dump($_SERVER);
 	
 	switch (htmlspecialchars($_GET["lang"]))
 	{
@@ -46,40 +42,6 @@
 	
 ?>
 
-
-
-<script type="text/javascript">
-
- 
- </script>
-
-
-<html>
-    <head>
-        <title>Impress Simple Example</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		
-		<link rel="stylesheet" href="../css/bootstrap.min.css">
-		<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
-		<link rel="stylesheet" href="../css/font-awesome.min.css">
-		
-	    <!-- Unify template -->
-		<link rel="icon" href="./favicon.ico">
-		<!-- Web Fonts -->
-		<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
-				
-		<!-- CSS Global Compulsory -->
-		<link rel="stylesheet" href="./assets/plugins/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="./assets/css/style.css">
-				
-		<!-- CSS impress.js slider Theme -->
-		<link rel="stylesheet" href="./css/slider.css">
-		<?php if ($ato == "orga1") echo '<link rel="stylesheet" href="./css/orga1.css">' ?>
-		<?php if ($ato == "orga2") echo '<link rel="stylesheet" href="./css/orga2.css">' ?>
-	
-	
-	</head>
-    <body>
 		<div class="container-fluid">
 			<div class="row slider_header margin-top-10">
 				<div class="col-sm-6">

@@ -1,46 +1,26 @@
-<!doctype html>
 <?php
-// include BPMspaceReplacer
 
-	include_once "../REPLACER/inc/class_replacer.inc.php"; 
-	$language ='de';
+require_once "_header.inc.php";
 
-	$RP = new RePlacer();
+ $language =$_GET["lang"];
+                $other_language ='en';
+                if ($language == 'de'){
+                    $other_language = 'en';
+                    }
+                else {$other_language = 'de';}
+                
+                $ato =$_GET["ato"];
+                $course_name ='TEST COURSE';
+
 
 ?>
-
-
-<html>
-
-<head>
-    <meta charset="utf-8" />
-    <title>TEST ASMS</title>
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="../css/font-awesome.min.css">
-  <link rel="stylesheet" href="../css/xeditable.css">
-  <link rel="stylesheet" href="../css/select.min.css">
-  <link rel="stylesheet" href="./impress.js/extras/highlight/styles/github.css">
-  <link rel="stylesheet" href="./impress.js/extras/mermaid/mermaid.forest.css">
-    
-    <link href="css/asms.css" rel="stylesheet" />
-</head>
-
-<body class="impress-not-supported">
-
-<!--
-    This fallback message is only visible when there is `impress-not-supported` class on body.
--->
-
-<div class="fallback-message">
-    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
-    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
-</div>
-
-<div class="container">
-
-    <!--Row with two equal columns-->
-</div>
+<div><a href="javascript:hash();">Language switch</a></div>
+      <!-- http://se02.ico-cert.org:4040/BPMspace/ASMS/example_simple.php?lang=en&ato=ico#/step-2 -->
+      <script type="text/javascript">function hash(){
+      console.log('test');
+    window.location = "<?php echo $_SERVER["SCRIPT_NAME"] . "?ato=" . $ato . "&" . "lang=" . $other_language ; ?>" + window.location.hash;
+  }
+    </script>
 <div id="impress" >
 
     <!--
@@ -64,71 +44,47 @@
         class, which adds a rectangle with some background and makes this presentation look like a traditional
         powerpoint slide show. The "slide" class is entirely optional and indeed you wouldn't use it for
         your cooler impress.js presentations.
-    -->
+      -->
 
-<?php
+      <?php
     //            include_once "../REPLACER/inc/class_replacer.inc.php";
-                if (!isset($_GET["pages"])) {
-                  echo "<p class=\"col-sm-12\"><a href=\"http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?pages=20\">20 Seiten</a></p>
-                        <p class=\"col-sm-12\"><a href=\"http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?pages=50\">50 Seiten</a></p>
-                        <p class=\"col-sm-12\"><a href=\"http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?pages=100\">100 Seiten</a></p>";
-                }else{
-                if (isset($_GET["lang"])) {
-                  $language = $_GET["lang"];
-                }else{
-                  $language = "de";
-                }
-                
-                
-             
-             $slides = $_GET["pages"];
-             
-             for ($i=1; $i <= $slides; $i++) { 
-             $i = sprintf('%02d',$i);
-               echo "<div class=\"step slide\">
-      ".$RP->replace($RP, "Test Slide $i", $language)."
-    </div>";
-             }
-           }
-?>
+      if (!isset($_GET["pages"])) {
+        echo "<p class=\"col-sm-12\"><a href=\"http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?pages=20\">20 Seiten</a></p>
+        <p class=\"col-sm-12\"><a href=\"http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?pages=50\">50 Seiten</a></p>
+        <p class=\"col-sm-12\"><a href=\"http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?pages=100\">100 Seiten</a></p>";
+      }else{
+        if (isset($_GET["lang"])) {
+          $language = $_GET["lang"];
+        }
+
+       
+        $slides = $_GET["pages"];
+
+        for ($i=1; $i <= $slides; $i++) { 
+         $i = sprintf('%02d',$i);
+         echo "<div class=\"step slide\">
+         ".$RP->replace($RP, "Test Slide $i", $language)."
+       </div>";
+       
+     }
+   }
+   ?>
 
    
 
-	
-</div>
+
+ </div>
 
 <!--
     Add navigation-ui controls: back, forward and a select list.
     Add a progress indicator bar (current step / all steps)
     Add the help popup plugin
--->
-<div id="impress-toolbar"></div>
+  -->
+  <div id="impress-toolbar"></div>
 
-<div class="impress-progressbar"><div></div></div>
-<div class="impress-progress"></div>
+  <div class="impress-progressbar"><div></div></div>
+  <div class="impress-progress"></div>
 
-<div id="impress-help"></div>
+  <div id="impress-help"></div>
 
-<!-- Extra modules
-     Load highlight.js, mermaid.js and markdown.js from extras.
-     If you're curious about details, these are initialized in src/plugins/extras/extras.js -->
-<script type="text/javascript" src="./impress.js/extras/markdown/markdown.js"></script>
-<script type="text/javascript" src="./impress.js/extras/impress-console/js/impressConsole.js"></script>
-<script type="text/javascript">
-  // For impressConsole, we unfortunately must also set the path to a mandatory css file
-  // which is relative to this html file.
-  // See https://github.com/regebro/impress-console/issues/19
-  var impressConsoleCss = './impress.js/extras/impress-console/css/impressConsole.css';
-</script>
-
-
-<!--
-    To make all described above really work, you need to include impress.js in the page.
-    You also need to call a `impress().init()` function to initialize impress.js presentation.
-    And you should do it in the end of your document. 
--->
-<script type="text/javascript" src="./impress.js/js/impress.js"></script>
-<script>impress().init();</script>
-
-</body>
-</html>
+  <?php require_once "_footer.inc.php"; ?>
