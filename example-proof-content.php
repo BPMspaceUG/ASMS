@@ -20,6 +20,36 @@ require_once "_header.inc.php";
     window.location = "<?php echo $_SERVER["SCRIPT_NAME"] . "?ato=" . $ato . "&" . "lang=" . $other_language . "&pattern=" . $pattern ; ?>" + window.location.hash;
   }
     </script>
+
+    <!-- Modal -->
+
+<div class="container">
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
 <div id="impress" >
 
     
@@ -38,7 +68,7 @@ require_once "_header.inc.php";
   $pattern = $_GET["pattern"]."%";
 
   // Prepare SQL query
-  $query = "SELECT * FROM bpmspace_replacer_v1.replacer where replacer_pattern like '$pattern';";
+  $query = "SELECT * FROM bpmspace_replacer_v1.replacer where replacer_pattern like '$pattern' order by replacer_id DESC ;";
   
   //execute query
   $res = $RP->getDB()->query($query);

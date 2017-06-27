@@ -4,10 +4,17 @@
    <head>
     <!-- <script src = "../js/angular-sanitize.min.js"></script>-->
       <script src = "../js/angular.min.js"></script>
+      <!-- For testing curently not used -->
+      <script src= "../js/jquery-2.1.4.min.js"></script>
+      <script src= "../js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="../css/bootstrap.min.css">
+      <!-- !! -->
    </head>
    
    <body>
    
+      
+
 
       <form class="form-horizontal" method="get" action="example-proof-content.php">
 
@@ -23,11 +30,17 @@
          <input ng-model= "pattern" style = "width:400px" type = "text" name= "pattern" placeholder = "Enter a pattern here: eg. Test or jeg">
          <hr />
          
- 
-         
       </div>
-<div ng-if="!lang || !pattern"><p>Bitte zuererst überall was eintragen</p></div>
-<div ng-if="lang && pattern">
+
+      <div>
+        
+        <label> ATO: </label>
+        <input ng-model= "ato" style= "width:400px" type="text" name="ato" placeholder="Enter an ATO here: eg. orga1">
+        <hr/>
+
+      </div>
+<div ng-if="!lang || !pattern || !ato"><p>Bitte zuererst überall was eintragen</p></div>
+<div ng-if="lang && pattern && ato">
         <div class="form-group">
           <label for="inputPassword" class="col-sm-6 control-label"></label>
           <div class="col-sm-6">
@@ -35,7 +48,8 @@
           </div>
         </div>
 </div>  
-      </form>
+
+      </fory<m>
    
    </body>
 </html>
