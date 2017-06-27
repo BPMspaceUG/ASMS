@@ -1,16 +1,25 @@
 <?php 
 require_once "_header.inc.php";
 
+  if (isset($_GET["lang"])) {
+    $language = $_GET["lang"];
+  }
+  if (isset($_GET["pattern"])) {
+    $pattern = $_GET["pattern"]."%";
+  }
+  else {
+    $_GET["pattern"] = $pattern."%";
+  }
+  if (isset($_GET["ato"])) {
+    $ato = $_GET["ato"];
+  }
 
- $language =$_GET["lang"];
                 $other_language ='en';
                 if ($language == 'de'){
                     $other_language = 'en';
                     }
-                else {$other_language = 'de';}
-                $pattern= $_GET["pattern"];
-                $ato =$_GET["ato"];
-                $course_name ='TEST COURSE';
+                else {$other_language = 'de';
+                    }
 
 ?>
 <a href="javascript:hash();"><img src="../images/BPMspace_logo.png"></img></a>
@@ -22,6 +31,13 @@ require_once "_header.inc.php";
     </script>
 
     <!-- Modal -->
+
+  <form  method="get" action="index.php">
+  <input type="hidden" name="lang" value="<?php echo $_GET['lang']; ?>">
+  <input type="hidden" name="pattern" value="<?php echo $_GET['pattern']; ?>">
+  <input type="hidden" name="ato" value="<?php echo $_GET['ato']; ?>">
+  <input type="submit" value="Back"><br>
+ </form> 
 
 <div class="container">
   <!-- Trigger the modal with a button -->
@@ -56,17 +72,6 @@ require_once "_header.inc.php";
 
 <?php
 
-  // Set the language for the Replacer
-  if (isset($_GET["lang"])) {
-    $language = $_GET["lang"];
-  }
-  //Read the Pattern for the Replacer
-  if (!isset($_GET["pattern"])){
-  	echo "Bitte Pattern setzen";
-  }
-  else{
-  $pattern = $_GET["pattern"]."%";
-
   // Prepare SQL query
   $query = "SELECT * FROM bpmspace_replacer_v1.replacer where replacer_pattern like '$pattern' order by replacer_id DESC ;";
   
@@ -79,7 +84,7 @@ require_once "_header.inc.php";
 
         echo "<div class=\"step slide\">$ret</div>";
       }
-  }    
+      
 ?>
 
    

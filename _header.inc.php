@@ -2,6 +2,7 @@
 	include_once "../REPLACER/inc/class_replacer.inc.php"; 
 	$language = 'de';
   $ato = 'orga1' ;
+  $pattern = '';
   
 	$RP = new RePlacer();
 ?>

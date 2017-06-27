@@ -12,22 +12,24 @@
    </head>
    
    <body>
-   
-      
 
 
       <form class="form-horizontal" method="get" action="example-proof-content.php">
 
            <div>
          <label>Language:</label>
-         <input ng-model= "lang" style = "width:400px" type = "text" name= "lang" placeholder = "Enter a language here: eg. de or en">
+         <input id="lan" style ="width:400px"  type = "text" name= "lang" value="<?php if(isset($_GET["lang"])){
+          echo $_GET["lang"];} else {echo 'de';}
+          ?>">
          <hr />
          
 
-      </div>
+      </div> 
       <div>
          <label>Pattern:</label>
-         <input ng-model= "pattern" style = "width:400px" type = "text" name= "pattern" placeholder = "Enter a pattern here: eg. Test or jeg">
+          <input style ="width:400px"  type = "text" name= "pattern" value="<?php if(isset($_GET["pattern"])){
+          echo $_GET["pattern"];} else {echo 'Test';}
+          ?>">
          <hr />
          
       </div>
@@ -35,21 +37,21 @@
       <div>
         
         <label> ATO: </label>
-        <input ng-model= "ato" style= "width:400px" type="text" name="ato" placeholder="Enter an ATO here: eg. orga1">
+         <input style ="width:400px"  type = "text" name= "ato" value="<?php if(isset($_GET["ato"])){
+          echo $_GET["ato"];} else {echo 'orga1';}
+          ?>">
         <hr/>
 
       </div>
-<div ng-if="!lang || !pattern || !ato"><p>Bitte zuererst überall was eintragen</p></div>
-<div ng-if="lang && pattern && ato">
         <div class="form-group">
           <label for="inputPassword" class="col-sm-6 control-label"></label>
           <div class="col-sm-6">
             <button type="submit">&rarr; Absenden</button>
           </div>
-        </div>
-</div>  
+        </div> 
 
-      </fory<m>
-   
+      </form>
+
+
    </body>
 </html>
