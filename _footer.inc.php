@@ -18,13 +18,18 @@
 <!-- Extra modules
      Load highlight.js, mermaid.js and markdown.js from extras.
      If you're curious about details, these are initialized in src/plugins/extras/extras.js -->
+  <!--    <script type="text/javascript" src="impress.js/extras/highlight/highlight.pack.js"></script>
+<script type="text/javascript" src="impress.js/extras/mermaid/mermaid.min.js"></script>
+
 <script type="text/javascript" src="./impress.js/extras/markdown/markdown.js"></script>
 <script type="text/javascript" src="./impress.js/extras/impress-console/js/impressConsole.js"></script>
-<script type="text/javascript">
+ -->
+ 
+ <script type="text/javascript">
   // For impressConsole, we unfortunately must also set the path to a mandatory css file
   // which is relative to this html file.
   // See https://github.com/regebro/impress-console/issues/19
-  var impressConsoleCss = './impress.js/extras/impress-console/css/impressConsole.css';
+  //var impressConsoleCss = './impress.js/extras/impress-console/css/impressConsole.css';
 </script>
 
 
@@ -33,7 +38,7 @@
     You also need to call a `impress().init()` function to initialize impress.js presentation.
     And you should do it in the end of your document. 
 -->
-<script type="text/javascript" src="./impress.js/js/impress.js"></script>
+<script type="text/javascript" src="impress.js"></script>
 <script>impress().init();</script>
 
 </body>

@@ -2,14 +2,7 @@
 <html ng-app>
    
    <head>
-    <!-- <script src = "../js/angular-sanitize.min.js"></script>-->
-      <script src = "../js/angular.min.js"></script>
-      <!-- For testing curently not used -->
-      <script src= "../js/jquery-2.1.4.min.js"></script>
-      <script src= "../js/bootstrap.min.js"></script>
-      <link rel="stylesheet" href="../css/bootstrap.min.css">
-      <!-- !! -->
-   </head>
+      </head>
    
    <body>
 
@@ -25,6 +18,7 @@
          
 
       </div> 
+      <div id="parentDiv">
       <div>
          <label>Pattern:</label>
           <input style ="width:400px"  type = "text" name= "pattern" value="<?php if(isset($_GET["pattern"])){
@@ -33,7 +27,25 @@
          <hr />
          
       </div>
+      <button type="button" onclick="multiPattern()">Another pattern</button>
+      <script> 
+      	var i = 1;
+      function multiPattern(){
+      	
+          if(i<10){
+          	console.log(i);
+          	i=i+1;
+          var input = document.createElement("input");
+          input.type = "text";
+          input.name = "pattern".concat(i);
+          var parent = document.getElementById("parentDiv");
+          parent.appendChild(input); // put it into the DOM
+          
+      }
+      }
+      </script>
 
+    </div>
       <div>
         
         <label> ATO: </label>
@@ -47,11 +59,14 @@
           <label for="inputPassword" class="col-sm-6 control-label"></label>
           <div class="col-sm-6">
             <button type="submit">&rarr; Absenden</button>
+            <button type="reset">Reset</button>
           </div>
         </div> 
 
       </form>
 
+
+<script type="text/javascript"></script>
 
    </body>
 </html>
