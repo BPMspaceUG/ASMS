@@ -39,6 +39,9 @@
     And you should do it in the end of your document. 
 -->
 <script type="text/javascript" src="impress.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"
+        type="text/javascript"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script>impress().init();</script>
 
 </body>

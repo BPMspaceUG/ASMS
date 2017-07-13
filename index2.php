@@ -15,7 +15,7 @@
    <body>
 
 <div class="container">
-      <form class="form" method="get" action="example-proof-content2.php">
+      <form class="form" method="get" action="example-proof-content.php">
 
            <div class="form-group">
          <label>Language:</label>
@@ -26,44 +26,37 @@
          
 
       </div> 
-      
-      
+      <div >
       <div id="parentDiv">
-      <label>Set:</label>
-      <select class="form-control" name="set">
-	       <?php 
-
-        require_once './../DB_config/login_credentials_DB_bpmspace_asms_RO.inc.php';
-  
-      
-
-      // create DB connection object
-      $db = new mysqli(
-        $config['db']['host'],
-        $config['db']['user'],
-        $config['db']['password'],
-        $config['db']['database']
-      );
-      /* check connection */
-      if($db->connect_errno){
-        printf("Connect failed: %s", mysqli_connect_error());
-        exit();
-      }
-      $db->query("SET NAMES utf8");
-
-      $setQuery = "SELECT * FROM asms_presentation";
-      $res = $db->query($setQuery);
-
-      while ($row = $res->fetch_assoc()) {
-
+         <label>Pattern:</label>
+          <input class="form-control" style ="width:400px"  type = "text" name= "pattern" value="<?php if(isset($_GET["pattern"])){
+          echo $_GET["pattern"];} else {echo 'Test';}
+          ?>">
          
-        $val = $row['asms_presentation_id'];
-        echo "<option value=\"$val\">" . $row['title'] . "</option>";
-      }
-         ?>
-      </select>
+         
       </div>
-    
+      <button class="btn" type="button" onclick="multiPattern()">Another pattern</button>
+      <script> 
+      	var i = 1;
+      function multiPattern(){
+      	
+          if(i<10){
+          	console.log(i);
+          	i=i+1;
+          var input = document.createElement("input");
+          input.class = "form-control";
+          input.type = "text";
+          input.name = "pattern".concat(i);
+          var parent = document.getElementById("parentDiv");
+          parent.appendChild(input); // put it into the DOM
+          var newline = '<br>'
+          parent.insertAdjacentHTML('beforeend',newline);
+          
+      }
+      }
+      </script>
+	
+    </div>
     <hr />
       <div>
         
@@ -85,7 +78,7 @@
       </form>
 </div>
 
-<input type="button" name="index2" value="Development mode" class="btn btn-md" onclick="document.location.href='index2.php'">
+
 
 <script type="text/javascript"></script>
 <!-- Das neueste kompilierte und minimierte JavaScript -->
