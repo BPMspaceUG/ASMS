@@ -99,7 +99,7 @@ else {$other_language = 'de';
       //   echo "<div class=\"step slide\" data-x=\"$i\" data-y=\"0\">".$parts[0].$rep.$parts[2]."</div>";
       // }
       // else
-        echo "<div class=\"step slide\" data-x=\"$i\" data-y=\"0\">".$rep."</div>";
+        echo "<div class=\"step slide\" data-x=\"$i\" data-y=\"0\">".$rep."<div class=\"notes\">The notes go here</div>"."</div>";
 
  
     }

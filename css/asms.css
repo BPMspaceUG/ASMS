@@ -75,6 +75,14 @@ body {
     line-height: 1.5;
 }
 /*
+
+Hide the notes created for the presenter console from the main slider. Only needed if there is a speaker console integrated.
+*/
+
+.step .notes {
+  display: none;
+}
+/*
     Make inactive steps a little bit transparent.
 */
 .impress-enabled .step {

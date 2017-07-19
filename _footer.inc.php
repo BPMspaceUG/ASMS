@@ -15,34 +15,33 @@
     </small>
   </div> -->
   
-<!-- Extra modules
-     Load highlight.js, mermaid.js and markdown.js from extras.
-     If you're curious about details, these are initialized in src/plugins/extras/extras.js -->
-  <!--    <script type="text/javascript" src="impress.js/extras/highlight/highlight.pack.js"></script>
-<script type="text/javascript" src="impress.js/extras/mermaid/mermaid.min.js"></script>
-
-<script type="text/javascript" src="./impress.js/extras/markdown/markdown.js"></script>
-<script type="text/javascript" src="./impress.js/extras/impress-console/js/impressConsole.js"></script>
- -->
  
- <script type="text/javascript">
-  // For impressConsole, we unfortunately must also set the path to a mandatory css file
-  // which is relative to this html file.
-  // See https://github.com/regebro/impress-console/issues/19
-  //var impressConsoleCss = './impress.js/extras/impress-console/css/impressConsole.css';
-</script>
-
-
 <!--
     To make all described above really work, you need to include impress.js in the page.
     You also need to call a `impress().init()` function to initialize impress.js presentation.
     And you should do it in the end of your document. 
 -->
-<script type="text/javascript" src="impress.js"></script>
+<script type="text/javascript" src="js/impress.js"></script>
+
+<!-- 
+Presentator console from https://github.com/regebro/impress-console
+-->
+<script src="js/impressConsole.js"></script>
+
+
 <script src="http://code.jquery.com/jquery-latest.min.js"
         type="text/javascript"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script>impress().init();</script>
+
+<!-- initialize impress.js and with already integrated impress speaker console--> 
+<script>
+impress().init();
+
+// Impress-console: Usage: press p to open console, click on timer to reset //it. Add notes by adding <div class="notes"> notes </div> 
+// This line is only needed with the original impress-console, but here we use he version with the proposed changes provided by https://github.com/regebro/impress-console/pull/22 since it works just fine and is conform to the impress.js newest version for 3rd arty plugins.
+//impressConsole().init();
+</script>
+
 
 </body>
 </html>
