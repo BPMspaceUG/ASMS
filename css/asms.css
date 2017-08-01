@@ -1,3 +1,15 @@
+/* Currently not in use */
+
+
+
+
+
+
+
+
+
+
+
 /*
   A common approach is to use googleapis.com to generate css for the webfonts you want to use.
   The downside of this approach is that you have to be online. So below I have simply saved
@@ -62,6 +74,15 @@ body {
     Now let's style the presentation steps.
 */
 
+/*
+
+Hide the notes created for the presenter console from the main slider. Only needed if there is a speaker console integrated.
+*/
+
+.step .notes {
+  display: none;
+}
+
 .step {
     position: relative;
     width: 100%;
@@ -74,14 +95,7 @@ body {
     font-size: 10px;
     line-height: 1.5;
 }
-/*
 
-Hide the notes created for the presenter console from the main slider. Only needed if there is a speaker console integrated.
-*/
-
-.step .notes {
-  display: none;
-}
 /*
     Make inactive steps a little bit transparent.
 */
@@ -99,9 +113,7 @@ Hide the notes created for the presenter console from the main slider. Only need
     and displayed by impressConsole.js when integrated.
 */
 
-.notes {
-    display: none;
-}
+
 
 /*
     These 'slide' step styles were heavily inspired by HTML5 Slides:

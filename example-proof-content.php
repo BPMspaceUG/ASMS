@@ -161,17 +161,11 @@ else {$other_language = 'de';
   // return the results as slides
     while ($row = $res->fetch_assoc()) {
       $i+= 2000;
-      $ret = $row["replacer_language_$language"];
-      $results_array[] = $row;
-      $parts = explode("#!#", $ret); 
-      if(count($parts)>1){
-        $rep = $RP->replace($RP,$parts[1],'de');
-        echo "<div class=\"step slide\" data-x=\"$i\" data-y=\"0\">".$parts[0].$rep.$parts[2]."</div>";
-      }
-      else
-        echo "<div class=\"step slide\" data-x=\"$i\" data-y=\"0\">".$parts[0]."</div>";
-    }
 
+    $rep = $RP->replace($RP,$row['replacer_id'],$language,'1');
+      
+        echo "<div class=\"step slide\" data-x=\"$i\" data-y=\"0\">".$rep."<div class=\"notes\">The notes go here</div>"."</div>";
+}
 
 
     ?>

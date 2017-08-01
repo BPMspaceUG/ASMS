@@ -1,3 +1,4 @@
+<!-- Put the slides in a container and set a focus on it for surrounding elements http://jmpressjs.github.io/jmpress.js/examples/container.html-->
 <?php 
 require_once "_header.inc.php";
 require_once './../DB_config/login_credentials_DB_bpmspace_asms_RO.inc.php';
@@ -30,7 +31,7 @@ if (isset($_GET["ato"])) {
   $ato = $_GET["ato"];
 }
 
-// alt language for language switch
+// alt language for language switch on logo click
 $other_language ='en';
 if ($language == 'de'){
   $other_language = 'en';
@@ -64,41 +65,22 @@ else {$other_language = 'de';
   <?php
 
   // Prepare SQL query
-    $query = "SELECT asms_slide_id FROM asms_presentation_slides where asms_presentation_id = $set order by asms_presentation_slides.order ASC";
+    $query = "SELECT replacer_id FROM asms_presentation_slides where asms_presentation_id = $set order by asms_presentation_slides.order ASC";
     
     $result = $db->query($query);
 
-  //execute query
-
-    // $rep = $RP->replace($RP,1,'de',1);
-    // //var_dump($rep);
-    // echo "<div class=\"step slide\" data-x=\"0\" data-y=\"0\">".$rep."</div>";
-    // $rep = $RP->replace($RP,2,'de',1);
-    // echo "<div class=\"step slide\" data-x=\"2000\" data-y=\"0\">".$rep."</div>";
-    // $rep = $RP->replace($RP,3,'de',1);
-    // echo "<div class=\"step slide\" data-x=\"4000\" data-y=\"0\">".$rep."</div>";
+    // Position of the first slide
     $i=0;
 
 
 
   // return the results as slides
     while ($row = $result->fetch_assoc()) {
+      // Position of the next slide
     $i+= 2000;
-       $results_array[] = $row;
-     //  var_dump($row['asms_slide_id']);
-      $rep = $RP->replace($RP,$row['asms_slide_id'],'de','1');
-      // var_dump($rep);
-      // echo "<div class=\"step slide\" data-x=\"$i\" data-y=\"0\">".$rep."</div>";
-      // //
-      // $ret = $results_array[1]['asms_slide_id'];
-      // var_dump($ret);
-     
-      // $parts = explode("#!#", $ret); 
-      // if(count($parts)>1){
-      //   $rep = $RP->replace($RP,$parts[1],'de',1);
-      //   echo "<div class=\"step slide\" data-x=\"$i\" data-y=\"0\">".$parts[0].$rep.$parts[2]."</div>";
-      // }
-      // else
+
+      $rep = $RP->replace($RP,$row['replacer_id'],$language,'1');
+      
         echo "<div class=\"step slide\" data-x=\"$i\" data-y=\"0\">".$rep."<div class=\"notes\">The notes go here</div>"."</div>";
 
  
