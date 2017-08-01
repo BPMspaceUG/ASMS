@@ -2,9 +2,12 @@
 	include_once "../REPLACER/inc/class_replacer.inc.php"; 
 	$language = 'de';
   $ato = 'orga1' ;
+  
   $pattern = '';
   
 	$RP = new RePlacer();
+
+
 ?>
 	<!DOCTYPE html>
 <html>
@@ -17,8 +20,17 @@
   <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
 
   <!-- Loads the default settings: Change if you want specific stylesheets of other ATOs -->
+<?php
+if (isset($_GET["ato"])) {
+  $ato = $_GET["ato"];
+  echo   "<link rel=\"stylesheet\" href=\"css/$ato.css\">";
+}
+else{
+?>
   <link rel="stylesheet" href="css/default.css">
-
+<?php
+}
+?>
 <!-- 
   
   

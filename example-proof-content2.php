@@ -27,9 +27,7 @@ if (isset($_GET["set"])) {
 if (isset($_GET["lang"])) {
   $language = $_GET["lang"];
 }
-if (isset($_GET["ato"])) {
-  $ato = $_GET["ato"];
-}
+
 
 // alt language for language switch on logo click
 $other_language ='en';
